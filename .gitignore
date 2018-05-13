@@ -1,11 +1,17 @@
 
 ##ignore:
 
+__pycache__/*
 *.un~
 ball.bmp
 pyg_practice.py
 test.py
 *.pyc
 *.swp
+
+tetris.py
 get-pip.py
+container.py
+tetromino.py
+
 

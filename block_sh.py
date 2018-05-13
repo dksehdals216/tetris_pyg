@@ -4,7 +4,8 @@ sh_o = [
 	[[1, 1],
 	 [1, 1]]
 ]
-
+print(sh_o)
+print(sh_o[0][0])
 sh_i = [
 	[[0, 0, 0, 0],
      [1, 1, 1, 1],
@@ -48,19 +49,19 @@ sh_l = [
 sh_z = [
 	[[1, 1, 0],
 	 [0, 1, 1],
-     [0, 0, 0]],
+	 [0, 0, 0]],
 
 	[[0, 0, 1],
 	 [0, 1, 1],
-     [0, 1, 0]],
+	 [0, 1, 0]],
 
 	[[0, 0, 0],
 	 [1, 1, 0],
-     [0, 1, 1]],
+	 [0, 1, 1]],
 
 	[[0, 1, 0],
 	 [1, 1, 0],
-     [1, 0, 0]]
+	 [1, 0, 0]]
 ]
 
 sh_j = [
@@ -84,35 +85,72 @@ sh_j = [
 sh_s = [
 	[[0, 1, 1],
 	 [1, 1, 0],
-     [0, 0, 0]],
+	 [0, 0, 0]],
 
 	[[0, 1, 0],
 	 [0, 1, 1],
-     [0, 0, 1]],
+	 [0, 0, 1]],
 
 	[[0, 0, 0],
 	 [0, 1, 1],
-     [1, 1, 0]],
+	 [1, 1, 0]],
 
 	[[1, 0, 0],
 	 [1, 1, 0],
-     [0, 1, 0]]
+	 [0, 1, 0]]
 ]
 
 sh_t = [
 	[[0, 1, 0],
-     [1, 1, 1],
+	 [1, 1, 1],
 	 [0, 0, 0]],
 
 	[[0, 1, 0],
-     [0, 1, 1],
+	 [0, 1, 1],
 	 [0, 1, 0]],
 	 
 	[[0, 0, 0],
-     [1, 1, 1],
+	 [1, 1, 1],
 	 [0, 1, 0]],
 
 	[[0, 1, 0],
-     [1, 1, 0],
+	 [1, 1, 0],
 	 [0, 1, 0]]
 ]
+
+def get_sh_o(index):
+    return sh_o[index]
+
+def get_sh_i(index):
+    return sh_i[index]
+
+def get_sh_l(index):
+    return sh_l[index]
+
+def get_sh_z(index):
+    return sh_z[index]
+
+def get_sh_j(index):
+    return sh_j[index]
+
+def get_sh_s(index):
+    return sh_s[index]
+
+def get_sh_t(index):
+    return sh_t[index]
+
+sh_dict = {
+    0: get_sh_o,
+    1: get_sh_i,
+    2: get_sh_l,
+    3: get_sh_z,
+    4: get_sh_j,
+    5: get_sh_s,
+    6: get_sh_t
+}
+
+#o, i, l, z, j, s, t
+def sh_pick(sh_name, index):
+    return sh_dict[sh_name](index)
+
+
