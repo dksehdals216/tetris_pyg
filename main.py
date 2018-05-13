@@ -1,9 +1,18 @@
 
+'''
+
+RULES:
+    1. All tetrominoes spawn horizontall and wholly above the playfield
+    2. I, O tetrominoes spawn centrally, while 3-cell wide tetrominoes spawn rounded to the left
+    3. J, L, T spawn flat-side first
+  
+'''
 import pygame
 import time
 from time import sleep
 import random
 
+import block_sh
 
 pygame.init()
 
@@ -39,37 +48,20 @@ red_bl = pygame.image.load('img/red_block.png')			#red 	5 	J
 turq_bl = pygame.image.load('img/turq_block.png')		#turq 	6 	S
 yellow_bl = pygame.image.load('img/yellow_block.png')	#yellow 7 	T
 
-#base shapes
-sh_tetris = [
-	[[1, 1],
-	 [1, 1]],
-
-	[[1, 1, 1, 1]],
-
-	[[1, 0],
-	 [1, 0],
-	 [1, 1]],
-
-	[[1, 1, 0],
-	 [0, 1, 1]],
-
-	[[0, 1],
-	 [0, 1],
-	 [1, 1]],
-
-	[[0, 1, 1],
-	 [1, 1, 0]],
-
-	[[1, 1, 1],
-	 [0, 1, 0]]
-]
-
 #init 22x10, height x width matrix to 0
 matrix_tetris = [[0 for x in range(BOARD_W)]for y in range(BOARD_H)] 
 
 def draw_obj(img_n, x, y):
 	gameDisplay.blit(img_n, (x, y))
-	
+
+#def draw_shape(img_arr, x, y):
+
+def draw_Board(matrix):
+	for x in range(BOARD_W):
+		for y in range(BOARD_H):
+			if matrix[x][y] != 0:
+				draw_obj(blue_bl, x*BLOCK_DIM, y*BLOCK_DIM)
+    
 x =  (0)
 y = (0)
 

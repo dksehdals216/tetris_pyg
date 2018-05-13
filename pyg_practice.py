@@ -9,7 +9,7 @@ display_height = 600
 
 # colors
 black = (0, 0, 0)
-white = (255, 255, 255)
+white = (255, 255, 255)j
 red = (255, 0 , 0)
 
 ball_width = 111
