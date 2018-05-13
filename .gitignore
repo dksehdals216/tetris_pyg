@@ -1,0 +1,11 @@
+
+##ignore:
+
+*.un~
+ball.bmp
+pyg_practice.py
+test.py
+*.pyc
+*.swp
+
+

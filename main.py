@@ -49,16 +49,22 @@ turq_bl = pygame.image.load('img/turq_block.png')		#turq 	6 	S
 yellow_bl = pygame.image.load('img/yellow_block.png')	#yellow 7 	T
 
 #init 22x10, height x width matrix to 0
-matrix_tetris = [[0 for x in range(BOARD_W)]for y in range(BOARD_H)] 
+matrix_tetris = [[0] * BOARD_W for i in range(BOARD_H)]
 
+'''
+def clear(matrix):
+    for x in range(BOARD_H):
+        for y in range(BOARD_W):
+            matrix[x][y] = 0
+'''
 def draw_obj(img_n, x, y):
 	gameDisplay.blit(img_n, (x, y))
 
 #def draw_shape(img_arr, x, y):
 
 def draw_Board(matrix):
-	for x in range(BOARD_W):
-		for y in range(BOARD_H):
+	for x in range(BOARD_H):
+		for y in range(BOARD_W):
 			if matrix[x][y] != 0:
 				draw_obj(blue_bl, x*BLOCK_DIM, y*BLOCK_DIM)
     
@@ -70,11 +76,13 @@ while not game_cond:
 		if event.type == pygame.QUIT:
 			game_cond = True
 
-	gameDisplay.fill(white)
-	draw_obj(blue_bl, x, y)
+	matrix_tetris[0][0] = 1 
+	matrix_tetris[1][1] = 1
+	gameDisplay.fill(black)
+	draw_Board(matrix_tetris)
 
 	pygame.display.update()
-	clock.tick(60)
+	clock.tick(1)
 
 pygame.quit()	# ends pygame
 quit()			# ends python
