@@ -60,26 +60,54 @@ def draw_Board(matrix):
             if matrix[x][y] != 0:
                 draw_obj(blue_bl, x*BLOCK_DIM, y*BLOCK_DIM)
 
+#draws matrix into matrix_tetris onto x, y coordinates
 def draw_sh_matrix(matrix, x, y):
     for i in range(len(matrix)):
         for j in range(len(matrix)):
             if matrix[i][j] == 1:
                 matrix_tetris[x + i][y + j] = 1
 
+def free_matrix(matrix, x, y):
+    for i in range(len(matrix)):
+        for j in range(len(matrix)):
+            if matrix[i][j] == 1:
+                matrix_tetris[x + i][y + j] = 0
+
+#0 left, 1 down, 2 right
+#todo: implement different tetrominoes as input
+def update_on_keypress(dir, x, y):
+    free_matrix(sh_pick(1, 0), x, y)
+    if dir == 0:
+        draw_sh_matrix(sh_pick(1, 0),x - 1, y)
+    if dir == 1:
+        draw_sh_matrix(sh_pick(1, 0),x, y + 1)
+    if dir == 2:
+        draw_sh_matrix(sh_pick(1, 0),x + 1, y)
+
+x = 0
+y = 0
+free_block = True   #block that is still moving
+
 while not game_cond:
+    gameDisplay.fill(black)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_cond = True
-
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_q:
                 game_cond = True
-            if event.key == pygame.K_
-	
-    draw_sh_matrix(sh_pick(1,0),1,0)
+#fix speed, different keypress and implement rotation
+            if free_block == True:
+                if event.key == pygame.K_DOWN:
+                    update_on_keypress(1, x, y)
+                    draw_Board(matrix_tetris)
+                    y += 1
+                if event.key == pygame.K_RIGHT:
+                    draw_Board(matrix_tetris)
 
-    gameDisplay.fill(black)
-    draw_Board(matrix_tetris)
+                if event.key == pygame.K_LEFT:
+                    draw_Board(matrix_tetris)
 
     pygame.display.update()
     clock.tick(1)
