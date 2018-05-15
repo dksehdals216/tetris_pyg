@@ -11,6 +11,7 @@ import pygame
 import time
 from time import sleep
 import random
+import math
 
 from block_sh import sh_pick
 
@@ -63,7 +64,9 @@ def draw_Board(matrix):
 #draws matrix into matrix_tetris onto x, y coordinates
 def draw_sh_matrix(matrix, x, y):
     for i in range(len(matrix)):
-        for j in range(len(matrix)):
+        #fix this 
+        for j in range(int(math.sqrt(len(matrix)))):
+            print(i, j)
             if matrix[i][j] == 1:
                 matrix_tetris[x + i][y + j] = 1
 
@@ -76,7 +79,7 @@ def free_matrix(matrix, x, y):
 #0 left, 1 down, 2 right
 #todo: implement different tetrominoes as input
 def update_on_keypress(dir, x, y):
-    free_matrix(sh_pick(1, 0), x, y)
+    #free_matrix(sh_pick(1, 0), x, y)
     if dir == 0:
         draw_sh_matrix(sh_pick(1, 0),x - 1, y)
     if dir == 1:
