@@ -37,15 +37,15 @@ pygame.display.set_caption('Tetris') # window title
 
 clock = pygame.time.Clock() # game clock
 game_cond = False
-							#Color  #.  Reference
-							#white 	0
-blue_bl = pygame.image.load('img/blue_block.png') 	#blue 	1 	O
-cyan_bl = pygame.image.load('img/cyan_block.png')	#cyan 	2 	I
-green_bl = pygame.image.load('img/green_block.png') 	#green 	3 	L
-purple_bl = pygame.image.load('img/purple_block.png')	#purple 4	Z
-red_bl = pygame.image.load('img/red_block.png')		#red 	5 	J
-turq_bl = pygame.image.load('img/turq_block.png')	#turq 	6 	S
-yellow_bl = pygame.image.load('img/yellow_block.png')	#yellow 7 	T
+                                                        #Color  #.  Reference
+                                                        #white 	0
+blue_bl = pygame.image.load('img/blue_block.png')       #blue 	1 	O
+cyan_bl = pygame.image.load('img/cyan_block.png')       #cyan 	2 	I
+green_bl = pygame.image.load('img/green_block.png')     #green 	3 	L
+purple_bl = pygame.image.load('img/purple_block.png')   #purple 4	Z
+red_bl = pygame.image.load('img/red_block.png')         #red 	5 	J
+turq_bl = pygame.image.load('img/turq_block.png')       #turq 	6 	S
+yellow_bl = pygame.image.load('img/yellow_block.png')   #yellow 7 	T
 
 #init 22x10, height x width matrix to 0
 matrix_tetris = [[0] * BOARD_W for i in range(BOARD_H)]
@@ -70,11 +70,13 @@ while not game_cond:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_cond = True
+
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_q:
+                game_cond = True
+            if event.key == pygame.K_
 
-	
-    draw_sh_matrix(sh_pick(0,0),1,0)
+    draw_sh_matrix(sh_pick(0,0), 1, 0)
 
     gameDisplay.fill(black)
     draw_Board(matrix_tetris)
