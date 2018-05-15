@@ -74,7 +74,8 @@ while not game_cond:
             if event.key == pygame.K_q:
 
 	
-    draw_sh_matrix(sh_pick(0,0),1,0)
+    draw_sh_matrix(sh_pick(1,0),1,0)
+
 
     gameDisplay.fill(black)
     draw_Board(matrix_tetris)
